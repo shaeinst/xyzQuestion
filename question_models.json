@@ -1,0 +1,28 @@
+{
+  "model_questions": {
+    "question_1": {
+      "question": "Do you biology ?",
+      "correct_answer": "option 3",
+      "option_1": "yes",
+      "option_2": "no",
+      "option_3": "never",
+      "option_4": "whatever"
+    },
+    "question_2": {
+      "question": "who is father of biology?",
+      "correct_answer": "option 1",
+      "option_1": "you",
+      "option_2": "me",
+      "option_3": "he",
+      "option_4": "she"
+    },
+    "question_3": {
+      "question": "is it enough example?",
+      "correct_answer": "option 3",
+      "option_1": "yes",
+      "option_2": "no",
+      "option_3": "maybe",
+      "option_4": "shallbe"
+    }
+  }
+}
