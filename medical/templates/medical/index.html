@@ -1,0 +1,54 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Medical quiz</title>
+        <link href="{% static 'medical/bootstrap.min.css' %}" rel="stylesheet">
+        <link type="image/png" href="{% static 'medical/favicon.ico' %}" rel="shortcut icon">
+    </head>
+
+    <body>
+        <div class="container" style="margin-bottom: 20vh;">
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg bg-white sticky-top shadow-sm p-2 mb-3 bg-body">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="{% url 'index' %}">Medical Quiz</a>
+                </div>
+            </nav>
+            <!-- end Navbar -->
+            <!-- context -->
+            <div>
+                {% if get_question %}
+                    <!-- question -->
+                    <div class="h1 text-center mb-3">{{ get_question.question.question_text }}</div>
+                    <!-- answer -->
+                    <div id="answer" class="lead" style="display:none;">{{ get_question.answer.answer_text }}</div>
+                {% else %}
+                    <p>No question found. try again</p>
+                {% endif %}
+            </div>
+            <!-- end content -->
+        </div>
+        <!-- button -->
+        <div class="d-grid d-md-block gap-2 mt-5 mb-3 text-center fixed-bottom">
+            <button id="button_answer" class="btn btn-dark rounded-0" type="button" onclick="toggleAnswer()">Reveal answer</button>
+            <a class="btn btn-primary rounded-0" type="button" href="{% url 'index' %}">Get random question</a>
+        </div>
+        <!-- end button -->
+        <script>
+            function toggleAnswer() {
+                let answer_id = document.getElementById("answer");
+                let button_answer_id = document.getElementById("button_answer");
+                if (answer_id.style.display === "none") {
+                    answer_id.style.display = "block";
+                    button_answer_id.innerText = "Hide answer"
+                } else {
+                    answer_id.style.display = "none";
+                    button_answer_id.innerText = "Reveal answer"
+                }
+            }
+        </script>
+    </body>
+</html>
